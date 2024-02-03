@@ -1,0 +1,122 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             code1, DATA, READONLY
+    2 00000000 41 6D 72 
+              69 74 61 
+              20 43 6F 
+              6C 6C 65 
+              67 65 00 string  dcb              "Amrita College\0"
+    3 0000000F                 AREA             code2, DATA, READWRITE
+    4 00000000 00000000 
+                       num     dcd              0
+    5 00000004                 AREA             code3, CODE, READONLY
+    6 00000000 E59F0028        ldr              r0, =string
+    7 00000004 E59F1028        ldr              r1, =num
+    8 00000008 E3A03000        mov              r3, #0
+    9 0000000C E4D02001 
+                       loop    ldrb             r2, [r0], #0x01
+   10 00000010 E2833001        add              r3, r3, #1
+   11 00000014 E3520020        cmp              r2, #" "
+   12 00000018 0A000002        beq              exit
+   13 0000001C E3520000        cmp              r2, #"\0"
+   14 00000020 E3E03000        mov              r3, #-1
+   15 00000024 1AFFFFF8        bne              loop
+   16 00000028 E5813000 
+                       exit    str              r3, [r1]
+   17 0000002C EAFFFFFE 
+                       e       b                e
+   18 00000030                 end
+              00000000 
+              00000000 
+Command Line: --debug --xref --device=DARMP --apcs=interwork -ol5_q3.o -ID:\Kei
+l\ARM\INC\Philips --predefine="__EVAL SETA 1" --list=l5_q3.lst l5_q3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+code1 00000000
+
+Symbol: code1
+   Definitions
+      At line 1 in file l5_q3.s
+   Uses
+      None
+Comment: code1 unused
+string 00000000
+
+Symbol: string
+   Definitions
+      At line 2 in file l5_q3.s
+   Uses
+      At line 6 in file l5_q3.s
+Comment: string used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+code2 00000000
+
+Symbol: code2
+   Definitions
+      At line 3 in file l5_q3.s
+   Uses
+      None
+Comment: code2 unused
+num 00000000
+
+Symbol: num
+   Definitions
+      At line 4 in file l5_q3.s
+   Uses
+      At line 7 in file l5_q3.s
+Comment: num used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+code3 00000000
+
+Symbol: code3
+   Definitions
+      At line 5 in file l5_q3.s
+   Uses
+      None
+Comment: code3 unused
+e 0000002C
+
+Symbol: e
+   Definitions
+      At line 17 in file l5_q3.s
+   Uses
+      At line 17 in file l5_q3.s
+Comment: e used once
+exit 00000028
+
+Symbol: exit
+   Definitions
+      At line 16 in file l5_q3.s
+   Uses
+      At line 12 in file l5_q3.s
+Comment: exit used once
+loop 0000000C
+
+Symbol: loop
+   Definitions
+      At line 9 in file l5_q3.s
+   Uses
+      At line 15 in file l5_q3.s
+Comment: loop used once
+4 symbols
+330 symbols in table

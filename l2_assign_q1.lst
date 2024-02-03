@@ -1,0 +1,41 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             expt, CODE, READONLY
+    2 00000000 E3A0000E        mov              r0, #14
+    3 00000004 E1B000A0        lsrs             r0, #1
+    4 00000008 23A02001        movcs            r2, #0x01
+    5 0000000C 33A02002        movcc            r2, #0x02
+    6 00000010 EAFFFFFE 
+                       e       b                e
+    7 00000014                 end
+Command Line: --debug --xref --device=DARMP --apcs=interwork -ol2_assign_q1.o -
+ID:\Keil\ARM\INC\Philips --predefine="__EVAL SETA 1" --list=l2_assign_q1.lst l2
+_assign_q1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+e 00000010
+
+Symbol: e
+   Definitions
+      At line 6 in file l2_assign_q1.s
+   Uses
+      At line 6 in file l2_assign_q1.s
+Comment: e used once
+expt 00000000
+
+Symbol: expt
+   Definitions
+      At line 1 in file l2_assign_q1.s
+   Uses
+      None
+Comment: expt unused
+2 symbols
+322 symbols in table

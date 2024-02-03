@@ -1,0 +1,122 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             code1, DATA, READONLY
+    2 00000000 01 02 05 
+              03       num     dcb              1, 2, 5, 3
+    3 00000004 04      len     dcb              4
+    4 00000005                 AREA             code2, DATA, READWRITE
+    5 00000000 00000000 
+                       big     dcd              0x00
+    6 00000004                 AREA             code3, CODE, READONLY
+    7 00000000 E59F002C        ldr              r0, =num
+    8 00000004 E59F102C        ldr              r1, =len
+    9 00000008 E59F502C        ldr              r5, =big
+   10 0000000C E5D12000        ldrb             r2, [r1]
+   11 00000010 E5D04000        ldrb             r4, [r0]
+   12 00000014 E4D03001 
+                       loop    ldrb             r3, [r0], #0x01
+   13 00000018 E1530004        cmp              r3, r4
+   14 0000001C C1A04003        movgt            r4, r3
+   15 00000020 E2422001        sub              r2, r2, #1
+   16 00000024 E3520000        cmp              r2, #0
+   17 00000028 1AFFFFF9        bne              loop
+   18 0000002C E5854000        str              r4, [r5]
+   19 00000030 EAFFFFFE 
+                       e       b                e
+   20 00000034                 end
+              00000000 
+              00000000 
+              00000000 
+Command Line: --debug --xref --device=DARMP --apcs=interwork -ol4_assign_q1.o -
+ID:\Keil\ARM\INC\Philips --predefine="__EVAL SETA 1" --list=l4_assign_q1.lst l4
+_assign_q1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+code1 00000000
+
+Symbol: code1
+   Definitions
+      At line 1 in file l4_assign_q1.s
+   Uses
+      None
+Comment: code1 unused
+len 00000004
+
+Symbol: len
+   Definitions
+      At line 3 in file l4_assign_q1.s
+   Uses
+      At line 8 in file l4_assign_q1.s
+Comment: len used once
+num 00000000
+
+Symbol: num
+   Definitions
+      At line 2 in file l4_assign_q1.s
+   Uses
+      At line 7 in file l4_assign_q1.s
+Comment: num used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+big 00000000
+
+Symbol: big
+   Definitions
+      At line 5 in file l4_assign_q1.s
+   Uses
+      At line 9 in file l4_assign_q1.s
+Comment: big used once
+code2 00000000
+
+Symbol: code2
+   Definitions
+      At line 4 in file l4_assign_q1.s
+   Uses
+      None
+Comment: code2 unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+code3 00000000
+
+Symbol: code3
+   Definitions
+      At line 6 in file l4_assign_q1.s
+   Uses
+      None
+Comment: code3 unused
+e 00000030
+
+Symbol: e
+   Definitions
+      At line 19 in file l4_assign_q1.s
+   Uses
+      At line 19 in file l4_assign_q1.s
+Comment: e used once
+loop 00000014
+
+Symbol: loop
+   Definitions
+      At line 12 in file l4_assign_q1.s
+   Uses
+      At line 17 in file l4_assign_q1.s
+Comment: loop used once
+3 symbols
+330 symbols in table

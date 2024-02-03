@@ -1,0 +1,121 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             data1, DATA, READONLY
+    2 00000000 01 02 03 
+              04       array   dcb              0x01, 0x02, 0x03, 0x04
+    3 00000004 04      len     dcb              0x04
+    4 00000005                 AREA             data2, DATA, READWRITE
+    5 00000000 00000000 
+                       result  dcd              0x00
+    6 00000004                 AREA             code1, CODE, READONLY
+    7 00000000 E59F002C        ldr              r0, =array
+    8 00000004 E59F102C        ldr              r1, =len
+    9 00000008 E59F202C        ldr              r2, =result
+   10 0000000C E3A03000        mov              r3, #0
+   11 00000010 E5914000        ldr              r4, [r1]
+   12 00000014 E5D05000 
+                       loop    ldrb             r5, [r0]
+   13 00000018 E0833005        add              r3, r3, r5
+   14 0000001C E2800001        add              r0, r0, #0x01
+   15 00000020 E2444001        sub              r4, r4, #1
+   16 00000024 E3540000        cmp              r4, #0
+   17 00000028 1AFFFFF9        bne              loop
+   18 0000002C E5823000        str              r3, [r2]
+   19 00000030 EAFFFFFE 
+                       e       b                e
+   20 00000034                 end
+              00000000 
+              00000000 
+              00000000 
+Command Line: --debug --xref --device=DARMP --apcs=interwork -ol3_q2.o -ID:\Kei
+l\ARM\INC\Philips --predefine="__EVAL SETA 1" --list=l3_q2.lst l3_q2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+array 00000000
+
+Symbol: array
+   Definitions
+      At line 2 in file l3_q2.s
+   Uses
+      At line 7 in file l3_q2.s
+Comment: array used once
+data1 00000000
+
+Symbol: data1
+   Definitions
+      At line 1 in file l3_q2.s
+   Uses
+      None
+Comment: data1 unused
+len 00000004
+
+Symbol: len
+   Definitions
+      At line 3 in file l3_q2.s
+   Uses
+      At line 8 in file l3_q2.s
+Comment: len used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data2 00000000
+
+Symbol: data2
+   Definitions
+      At line 4 in file l3_q2.s
+   Uses
+      None
+Comment: data2 unused
+result 00000000
+
+Symbol: result
+   Definitions
+      At line 5 in file l3_q2.s
+   Uses
+      At line 9 in file l3_q2.s
+Comment: result used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+code1 00000000
+
+Symbol: code1
+   Definitions
+      At line 6 in file l3_q2.s
+   Uses
+      None
+Comment: code1 unused
+e 00000030
+
+Symbol: e
+   Definitions
+      At line 19 in file l3_q2.s
+   Uses
+      At line 19 in file l3_q2.s
+Comment: e used once
+loop 00000014
+
+Symbol: loop
+   Definitions
+      At line 12 in file l3_q2.s
+   Uses
+      At line 17 in file l3_q2.s
+Comment: loop used once
+3 symbols
+330 symbols in table

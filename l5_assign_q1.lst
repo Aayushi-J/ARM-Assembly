@@ -1,0 +1,138 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             data1, DATA, READONLY
+    2 00000000 41 6D 72 
+              69 74 61 
+              31 00    string1 dcb              "Amrita1\0"
+    3 00000008 41 6D 72 
+              69 74 61 
+              32 00    string2 dcb              "Amrita2\0"
+    4 00000010                 AREA             data1, DATA, READWRITE
+    5 00000010 00000000 
+                       result  dcd              0
+    6 00000014                 AREA             data2, CODE, READONLY
+    7 00000000 E59F0034        ldr              r0, =string1
+    8 00000004 E59F1034        ldr              r1, =string2
+    9 00000008 E3A04000        mov              r4, #0
+   10 0000000C E4D02001 
+                       loop    ldrb             r2, [r0], #1
+   11 00000010 E4D13001        ldrb             r3, [r1], #1
+   12 00000014 E1520003        cmp              r2, r3
+   13 00000018 1A000003        bne              exit
+   14 0000001C E3520000        cmp              r2, #"\0"
+   15 00000020 03530000        cmpeq            r3, #"\0"
+   16 00000024 0A000002        beq              exit1
+   17 00000028 EAFFFFF7        b                loop
+   18 0000002C E3A04000 
+                       exit    mov              r4, #0x00
+   19 00000030 EA000000        b                exit2
+   20 00000034 03A040FF 
+                       exit1   moveq            r4, #0xff
+   21 00000038         exit2
+   22 00000038 EAFFFFFE 
+                       e       b                e
+   23 0000003C                 end
+              00000000 
+              00000000 
+Command Line: --debug --xref --device=DARMP --apcs=interwork -ol5_assign_q1.o -
+ID:\Keil\ARM\INC\Philips --predefine="__EVAL SETA 1" --list=l5_assign_q1.lst l5
+_assign_q1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data1 00000000
+
+Symbol: data1
+   Definitions
+      At line 1 in file l5_assign_q1.s
+   Uses
+      None
+Comment: data1 unused
+result 00000010
+
+Symbol: result
+   Definitions
+      At line 5 in file l5_assign_q1.s
+   Uses
+      None
+Comment: result unused
+string1 00000000
+
+Symbol: string1
+   Definitions
+      At line 2 in file l5_assign_q1.s
+   Uses
+      At line 7 in file l5_assign_q1.s
+Comment: string1 used once
+string2 00000008
+
+Symbol: string2
+   Definitions
+      At line 3 in file l5_assign_q1.s
+   Uses
+      At line 8 in file l5_assign_q1.s
+Comment: string2 used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data2 00000000
+
+Symbol: data2
+   Definitions
+      At line 6 in file l5_assign_q1.s
+   Uses
+      None
+Comment: data2 unused
+e 00000038
+
+Symbol: e
+   Definitions
+      At line 22 in file l5_assign_q1.s
+   Uses
+      At line 22 in file l5_assign_q1.s
+Comment: e used once
+exit 0000002C
+
+Symbol: exit
+   Definitions
+      At line 18 in file l5_assign_q1.s
+   Uses
+      At line 13 in file l5_assign_q1.s
+Comment: exit used once
+exit1 00000034
+
+Symbol: exit1
+   Definitions
+      At line 20 in file l5_assign_q1.s
+   Uses
+      At line 16 in file l5_assign_q1.s
+Comment: exit1 used once
+exit2 00000038
+
+Symbol: exit2
+   Definitions
+      At line 21 in file l5_assign_q1.s
+   Uses
+      At line 19 in file l5_assign_q1.s
+Comment: exit2 used once
+loop 0000000C
+
+Symbol: loop
+   Definitions
+      At line 10 in file l5_assign_q1.s
+   Uses
+      At line 17 in file l5_assign_q1.s
+Comment: loop used once
+6 symbols
+332 symbols in table

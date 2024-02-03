@@ -1,0 +1,108 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             data, DATA, READONLY
+    2 00000000 41 6D 72 
+              69 74 61 
+              00       string  dcb              "Amrita\0"
+    3 00000007                 AREA             data1, DATA, READWRITE
+    4 00000000 00000000 
+                       length  dcd              0
+    5 00000004                 AREA             code1, CODE, READONLY
+    6 00000000 E59F001C        ldr              r0, =string
+    7 00000004 E59F101C        ldr              r1, =length
+    8 00000008 E3A02000        mov              r2, #0
+    9 0000000C E4D03001 
+                       loop    ldrb             r3, [r0], #1
+   10 00000010 E3530000        cmp              r3, #"\0"
+   11 00000014 12822001        addne            r2, r2, #1
+   12 00000018 1AFFFFFB        bne              loop
+   13 0000001C E5812000        str              r2, [r1]
+   14 00000020 EAFFFFFE 
+                       e       b                e
+   15 00000024                 end
+              00000000 
+              00000000 
+Command Line: --debug --xref --device=DARMP --apcs=interwork -ol5_q1.o -ID:\Kei
+l\ARM\INC\Philips --predefine="__EVAL SETA 1" --list=l5_q1.lst l5_q1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 1 in file l5_q1.s
+   Uses
+      None
+Comment: data unused
+string 00000000
+
+Symbol: string
+   Definitions
+      At line 2 in file l5_q1.s
+   Uses
+      At line 6 in file l5_q1.s
+Comment: string used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data1 00000000
+
+Symbol: data1
+   Definitions
+      At line 3 in file l5_q1.s
+   Uses
+      None
+Comment: data1 unused
+length 00000000
+
+Symbol: length
+   Definitions
+      At line 4 in file l5_q1.s
+   Uses
+      At line 7 in file l5_q1.s
+Comment: length used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+code1 00000000
+
+Symbol: code1
+   Definitions
+      At line 5 in file l5_q1.s
+   Uses
+      None
+Comment: code1 unused
+e 00000020
+
+Symbol: e
+   Definitions
+      At line 14 in file l5_q1.s
+   Uses
+      At line 14 in file l5_q1.s
+Comment: e used once
+loop 0000000C
+
+Symbol: loop
+   Definitions
+      At line 9 in file l5_q1.s
+   Uses
+      At line 12 in file l5_q1.s
+Comment: loop used once
+3 symbols
+329 symbols in table

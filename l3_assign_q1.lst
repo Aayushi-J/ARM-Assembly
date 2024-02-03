@@ -1,0 +1,99 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             code1, DATA, READONLY
+    2 00000000 00000005 
+                       num     dcd              0x05
+    3 00000004                 AREA             code2, DATA, READWRITE
+    4 00000000 00000000 
+                       result  dcd              0x00
+    5 00000004                 AREA             exp1, CODE, READONLY
+    6 00000000 E59F001C        ldr              r0, =num
+    7 00000004 E59F101C        ldr              r1, =result
+    8 00000008 E5913000        ldr              r3, [r1]
+    9 0000000C E5902000        ldr              r2, [r0]
+   10 00000010 E1B020A2        movs             r2, r2, lsr #1
+   11 00000014 22833001        addcs            r3, r3, #0x01
+   12 00000018 32833002        addcc            r3, r3, #0x02
+   13 0000001C E5813000        str              r3, [r1]
+   14 00000020 EAFFFFFE 
+                       e       b                e
+   15 00000024                 end
+              00000000 
+              00000000 
+Command Line: --debug --xref --device=DARMP --apcs=interwork -ol3_assign_q1.o -
+ID:\Keil\ARM\INC\Philips --predefine="__EVAL SETA 1" --list=l3_assign_q1.lst l3
+_assign_q1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+code1 00000000
+
+Symbol: code1
+   Definitions
+      At line 1 in file l3_assign_q1.s
+   Uses
+      None
+Comment: code1 unused
+num 00000000
+
+Symbol: num
+   Definitions
+      At line 2 in file l3_assign_q1.s
+   Uses
+      At line 6 in file l3_assign_q1.s
+Comment: num used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+code2 00000000
+
+Symbol: code2
+   Definitions
+      At line 3 in file l3_assign_q1.s
+   Uses
+      None
+Comment: code2 unused
+result 00000000
+
+Symbol: result
+   Definitions
+      At line 4 in file l3_assign_q1.s
+   Uses
+      At line 7 in file l3_assign_q1.s
+Comment: result used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+e 00000020
+
+Symbol: e
+   Definitions
+      At line 14 in file l3_assign_q1.s
+   Uses
+      At line 14 in file l3_assign_q1.s
+Comment: e used once
+exp1 00000000
+
+Symbol: exp1
+   Definitions
+      At line 5 in file l3_assign_q1.s
+   Uses
+      None
+Comment: exp1 unused
+2 symbols
+328 symbols in table

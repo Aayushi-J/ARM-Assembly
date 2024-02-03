@@ -1,0 +1,45 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             data, CODE, READONLY
+    2 00000000 E3A01002        mov              r1, #2
+    3 00000004 E3A02005        mov              r2, #5
+    4 00000008 E3A0300A        mov              r3, #10
+    5 0000000C E3A0400C        mov              r4, #12
+    6 00000010 E0815002        add              r5, r1, r2
+    7 00000014 E0456003        sub              r6, r5, r3
+    8 00000018 E2844002        add              r4, r4, #2
+    9 0000001C E0868004        add              r8, r6, r4
+   10 00000020 EAFFFFFE 
+                       e       b                e
+   11 00000024                 end
+Command Line: --debug --xref --device=DARMP --apcs=interwork -ol1_assign1.o -ID
+:\Keil\ARM\INC\Philips --predefine="__EVAL SETA 1" --list=l1_assign1.lst l1_ass
+ign1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 1 in file l1_assign1.s
+   Uses
+      None
+Comment: data unused
+e 00000020
+
+Symbol: e
+   Definitions
+      At line 10 in file l1_assign1.s
+   Uses
+      At line 10 in file l1_assign1.s
+Comment: e used once
+2 symbols
+322 symbols in table
